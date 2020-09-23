@@ -1,0 +1,140 @@
+/*
+27.	Write a program to fine the smallest and greatest number present in the array of integer type.
+*/
+
+public class ArrOp{
+ 
+        public static void main(String[] args) {
+                int num[] = new int[]{33,53,73,94,22,45,23,87,13,63};
+                int small = num[0];
+                int big = num[0];
+               
+                for(int i=1; i< num.length; i++)
+                {
+                        if(num[i] > big)
+                                big = num[i];
+                        else if (num[i] < small)
+                                small = num[i];
+                       
+                }
+               
+                System.out.println("Largest Number is : " + big);
+                System.out.println("Smallest Number is : " + small);
+        }
+}
+
+/*
+28.	Initialize one String type of array and print the elements using for each loop.
+*/
+import java.util.*;
+class StrArr{
+	public static void main(String args[]){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter number of Strings to be enter");
+		int n = sc.nextInt();
+		String str[] = new String[n];
+		for(int i=0; i<n ; i++)
+		{
+			str[i] = sc.next();
+		}
+		for(String a : str)
+		{
+			System.out.println(a);
+		}
+	}
+}
+
+/*
+30.	Create an integer type 2-D array of size [3X3]. Take the elements from the user and then calculate the sum of the elements present in the diagonal.
+*/
+
+import java.util.*;
+class TwodArr{
+	public static void main(String ags[])
+	{
+		Scanner sc = new Scanner(System.in);
+		int arr[][] = new int[3][3];
+		System.out.println("Enter elements");
+		int sum=0,sum1=0;
+		for(int i = 0; i < 3; i++)
+		{
+			for(int j = 0; j<3;j++)
+			{
+				arr[i][j] = sc.nextInt();
+			}
+		}
+		int major=0,minor=0;
+		for(int i=0;i<3;i++)
+		{
+			major=major+arr[i][i];
+			minor=minor+arr[i][2-i];
+		}
+		
+		System.out.println(major);
+		System.out.println(minor);
+	}
+}
+
+
+/*
+31.	Create a class Student with 2 data members rno and name. Create one method setData() that takes roll number and student name as parameter and stores them in data members rno and name. Create one more method showData() to print the data member values. Create another class ( main class) StudentDemo that creates Student class object and calls setData() and showData() methods.
+*/
+
+class Student
+{
+	private int rno;
+	private String name;
+	void setData(int rno, String name)
+	{
+		this.rno = rno;
+		this.name = name;
+	}
+	void showData()
+	{
+		System.out.println(rno+" "+name);
+	}
+}
+class StudMain
+{
+	public static void main(String args[])
+	{
+		Student s = new Student();
+		s.setData(101,"Abc");
+		s.showData();
+	}
+}
+
+
+/*
+32.	Modify the above program (no. 30) to count the no of Student objects created. [ In this program static variable is required ]
+*/
+
+ class Arr {
+	private int rno;
+	private String name;
+	static int count = 0;
+	void setData(String n,int no)
+	{
+		rno = no;
+		name = n;
+		count = count+1;
+	}
+	void showData()
+	{
+		System.out.println("Name of student is "+name);
+		System.out.println("Roll number of student is "+rno);
+		System.out.println("Total number of student are "+count);
+		
+	}
+}
+ class ArrObj {
+
+	public static void main(String args[])
+	{
+		Arr a = new Arr();
+		a.setData("ABC",134);
+		a.showData();
+		a.setData("XYZ",110);
+		a.showData();
+	}
+}
