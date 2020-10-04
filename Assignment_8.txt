@@ -1,0 +1,128 @@
+/*
+53.Input data exactly in the following format, and print sum of all integer values. “67, 89, 23,67,12, 55,66”.   (Hint use String class split method and Integer class parseInt method) .
+*/
+
+public class SumInt {
+
+	public static void main(String[] args) {
+		String s[]= {"1","2","3","4","5","6","7"};
+		double sum=0;
+		for(String ss:s) {
+			int a=Integer.parseInt(ss);
+			sum+=a;
+		}
+		System.out.println("Sum of Integers are:"+sum);
+	}
+
+}
+
+
+/*
+54.	Write a program to reverse the given String.
+*/
+
+public class Q54 {
+
+	public static void main(String[] args) {
+		
+		String str="Bhagyashri";
+	
+		StringBuffer ss=new StringBuffer(str);
+		ss.reverse();
+		System.out.print(ss);
+      
+}
+}
+
+
+/*
+55.Write a program to count no of words in the String.
+*/
+
+import java.util.Scanner;
+public class CntWord {
+	public static void main(String args[]) {
+		  Scanner sc=new Scanner(System.in);
+		  String str1="Bhagyashri  Deore";
+		  String str3=sc.nextLine();
+		  String str2[]=str3.split(" ");
+		  int i=str2.length;
+		  System.out.print(i);
+	}
+}
+
+
+/*
+56.	Write a program to convert very first character of every word in uppercase in a String.
+*/
+
+import java.util.Scanner;
+public class UpperChar {
+
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		StringBuffer s=new StringBuffer();
+		char ch=' ';
+		String str="rrrr gggg";
+		for(int i=0;i<str.length();i++) {
+			if(ch==' ' && str.charAt(i)!=' ') 
+				s.append(Character.toUpperCase(str.charAt(i)));
+		   else
+		                s.append(str.charAt(i)); 
+				ch=str.charAt(i);
+			
+		}
+		
+		System.out.print(s.toString().trim());
+	}
+
+}
+
+
+/*
+57.	Write a program to reverse every word of the String.
+*/
+
+import java.util.Scanner;
+public class RevStr {
+	public static void main(String args[]){
+	Scanner sc=new Scanner(System.in);
+	String str=sc.nextLine();
+	String reverceWord="";
+	String str1[]=str.split(" ");
+	
+	for(String ss:str1) {
+		StringBuilder ss1=new StringBuilder(ss);
+		ss1.reverse();
+		reverceWord+=ss1+" ";
+	}
+	System.out.print(reverceWord);
+	
+}
+}
+
+/*
+58.	Store name of weekdays in an array (starting from “Sunday” at 0 index). Ask day position from user and print day name. Handle array index out of bound exception and give proper message if user enter day index outside range (0-6). 
+*/
+
+import java.util.Scanner;
+public class Weekdays {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str2[]= {"Sun","Tue","Wed","Thu","Fri","Sat","Mon"};
+		int a=sc.nextInt();
+		for(int i=0;i<str2.length;i++) {
+			if(i==(a-1)) {
+				System.out.print(str2[i]);
+				break;
+			}
+		}
+		
+
+	}
+
+}
+
+------------------------------------------------------End-----------------------------------------------

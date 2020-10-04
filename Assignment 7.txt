@@ -1,0 +1,149 @@
+/* 50. Explain the importance of toString() and equals() method of the Object class and override them on 
+ * class Employee(empId,name,salary).  a. Create class for main method(say XYZ),and accept five employees 
+ * information and store in an array. Also ensure if entered empId already exist or not (use equals method).  
+ * b. Display all employee info using toString method.
+ */
+
+
+import java.util.Scanner;
+
+class Employee {
+	private int empId;
+	private String  name;
+	private double salary;
+	Employee(int empId,String name,double salary){
+		this.empId = empId;
+		this.name = name;
+		this.salary = salary;
+	}
+	public int getEmpId() {
+		return empId;
+	}
+	public String getName() {
+		return name;
+	}
+	public double getSalary() {
+		return salary;
+	}
+	public boolean equals(Employee E1) {
+		if(E1.getEmpId() == this.empId ) {
+			return true;
+		}
+		else
+			return false;
+	}
+	public String toString() {
+		String str = "{ EmpId : "+this.getEmpId()+"\n Name : "+this.getName()+"\n Salary : "+this.getSalary()+"  },\n";
+		return str;
+	}
+}
+
+public class q50 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter Employee No : ");
+		int no = sc.nextInt();
+		
+		Employee []arr = new Employee[no];
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println("Enter "+(i+1)+"th Employee Details : ");
+			System.out.print("EmpId : ");
+			int emp = sc.nextInt();
+			System.out.print("Name : ");
+			String str = sc.next();
+			System.out.print("Salary : ");
+			double sal = sc.nextDouble();
+			arr[i] = new Employee(emp,str,sal);
+			for (int j = 0; j < i ; j++) {
+				if(arr[i].equals(arr[j])) {
+					i--;
+					System.out.println("Double Employee ID Entry!!! \nEnter Details again :\n");
+					break;
+				}
+			}
+		}
+		System.out.println("\n[ ");
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i].toString());
+			
+		}
+		System.out.println("  ]");
+		sc.close();
+	}
+}
+
+
+/* 
+	52. Input name of a person and count how many vowels it contains.  Use String class functions.
+*/
+import java.util.Scanner;
+public class q52 {
+	
+	static int countVowel(String str) {
+		int count = 0;
+		for (int i = 0; i < str.length(); i++) {
+			switch(str.charAt(i)) {
+			case 'a' :
+					count++;
+					break;
+			case 'e' :
+				count++;
+				break;
+			case 'i' :
+				count++;
+				break;
+			case 'o' :
+				count++;
+				break;
+			case 'u' :
+				count++;
+				break;
+			default:
+				break;
+					
+			}
+		}
+		return count;
+	}
+
+	public static void main(String[] args) {
+		
+		System.out.println("Enter the Name : ");
+		Scanner sc = new Scanner(System.in);
+		String name = sc.next();
+		name = name.toLowerCase();
+		System.out.println("No. of Vowel : "+countVowel(name));
+		sc.close();
+	}
+
+}
+
+
+/* 53. Input data exactly in the following format, and 
+ * print sum of all integer values. “67, 89, 23, 67, 12, 55, 66”. 
+ *   (Hint use String class split method and Integer class parseInt method) .
+ */
+import java.util.Scanner;
+public class q53 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the String : ");
+		String str = sc.nextLine();
+		String[] st = str.split(",\\s");  //", "
+		int[] arr = new int[st.length];
+		for (int i = 0; i < st.length; i++) {
+			arr[i] = Integer.parseInt(st[i]);
+			
+		}
+		for (int i : arr) {
+			System.out.println(i);
+		}
+		sc.close();
+	
+	}
+
+}
